@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://accounts.google.com; connect-src 'self' https://sheets.googleapis.com https://oauth2.googleapis.com https://accounts.google.com; frame-src https://accounts.google.com; style-src 'self' 'unsafe-inline' https://accounts.google.com; img-src 'self' data:; object-src 'none'; base-uri 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#1f3a5f">
+<title>GST Registration &amp; Amendment Tracker</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <h1>GST Registration &amp; Amendment Tracker</h1>
+  <span id="conn">Not connected</span>
+  <button id="btnConnect" class="pri">Connect Google</button>
+  <button id="btnSettings">Settings</button>
+</header>
+<main>
+  <section id="setup" class="card" hidden></section>
+  <section id="app" hidden>
+    <div class="tiles" id="tiles"></div>
+    <div class="bar">
+      <input id="q" type="search" placeholder="Search ARN, name, group, GSTIN, status...">
+      <select id="filter"></select>
+      <button id="btnAdd" class="pri">+ Add ARN</button>
+      <button id="btnImport">Import portal result</button>
+      <button id="btnRefresh">Refresh</button>
+      <a id="lnkSheet" class="btn" target="_blank" rel="noopener noreferrer">Open Google Sheet</a>
+    </div>
+    <div class="wrap"><table><thead id="thead"></thead><tbody id="tbody"></tbody></table></div>
+    <p class="mute" id="count"></p>
+  </section>
+</main>
+<dialog id="dlg"><div class="dlg" id="dlgBody"></div></dialog>
+<div id="toast"></div>
+<script src="core.js"></script>
+<script src="logic.js"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+</body>
+</html>
